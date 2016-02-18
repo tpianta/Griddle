@@ -84,6 +84,7 @@ var Griddle = React.createClass({
             "externalCurrentPage": null,
             "externalSortColumn": null,
             "externalSortAscending": true,
+            "defaultSortAscending": true,
             "externalLoadingComponent": null,
             "externalIsLoading": false,
             "enableInfiniteScroll": false,
@@ -266,7 +267,7 @@ var Griddle = React.createClass({
             state = {
                 page:0,
                 sortColumn: sort,
-                sortAscending: true
+                sortAscending: defaultSortAscending
             };
 
         // If this is the same column, reverse the sort.
@@ -490,7 +491,8 @@ var Griddle = React.createClass({
             sortDescendingClassName: this.props.sortDescendingClassName,
             sortAscendingComponent: this.props.sortAscendingComponent,
             sortDescendingComponent: this.props.sortDescendingComponent,
-            sortDefaultComponent: this.props.sortDefaultComponent
+            sortDefaultComponent: this.props.sortDefaultComponent,
+            defaultSortAscending: this.props.defaultSortAscending
         }
     },
 	_toggleSelectAll: function () {

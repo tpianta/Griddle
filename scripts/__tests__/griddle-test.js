@@ -272,6 +272,16 @@ describe('Griddle', function() {
     grid.changeSort("address.state");
     expect(grid.state.sortAscending).toEqual(false);
   });
+  
+  it('sets sort direction to desc if defaultSortAscending is false', function(){
+    var grid2 = TestUtils.renderIntoDocument(<Griddle results={fakeData} gridClassName="test" defaultSortAscending={false} />);
+    expect(grid.state.sortColumn).toEqual("");
+    grid.changeSort("address.state");
+    expect(grid.state.sortColumn).toEqual("address.state");
+    expect(grid.state.sortAscending).toEqual(false);
+    grid.changeSort("address.state");
+    expect(grid.state.sortAscending).toEqual(true);
+  });
 
   it('uses results when external not set', function(){
       var grid2 = TestUtils.renderIntoDocument(<Griddle results={fakeData} gridClassName="test" />);
